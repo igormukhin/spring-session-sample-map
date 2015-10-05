@@ -6,9 +6,17 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.2.6.RELEASE</version>
 	</parent>
+
 	<artifactId>spring-session-sample-concurrentmap</artifactId>
+	<packaging>war</packaging>
+
 	<name>Spring Session using ConcurrentMap Sample</name>
 	<description>Spring Session on Spring Boot using ConcurrentMap as a session storage</description>
+
+	<properties>
+		<java.version>8</java.version>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -44,12 +52,28 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
